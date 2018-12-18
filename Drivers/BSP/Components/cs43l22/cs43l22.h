@@ -38,17 +38,16 @@
 #define __CS43L22_H
 
 /* Includes ------------------------------------------------------------------*/
-//#include "../Common/audio.h"
-#include <stdint.h>
-#include "stm32f4_discovery.h"
+#include "../Common/audio.h"
+
 /** @addtogroup BSP
   * @{
-  */
+  */ 
 
 /** @addtogroup Component
   * @{
-  */
-
+  */ 
+  
 /** @addtogroup CS43L22
   * @{
   */
@@ -63,7 +62,7 @@
 
 /** @defgroup CS43L22_Exported_Constants
   * @{
-  */
+  */ 
 
 /******************************************************************************/
 /***************************  Codec User defines ******************************/
@@ -99,7 +98,7 @@
 #define AUDIO_FREQUENCY_22K           ((uint32_t)22050)
 #define AUDIO_FREQUENCY_16K           ((uint32_t)16000)
 #define AUDIO_FREQUENCY_11K           ((uint32_t)11025)
-#define AUDIO_FREQUENCY_8K            ((uint32_t)8000)
+#define AUDIO_FREQUENCY_8K            ((uint32_t)8000)  
 
 /** CS43l22 Registers  ***/
 #define   CS43L22_REG_ID                  0x01
@@ -146,7 +145,7 @@
 /******************************************************************************/
 /** 
   * @brief  CS43L22 ID  
-  */
+  */  
 #define  CS43L22_ID            0xE0
 #define  CS43L22_ID_MASK       0xF8
 /**
@@ -166,7 +165,7 @@
 
 /**
   * @}
-  */
+  */ 
 
 /** @defgroup CS43L22_Exported_Macros
   * @{
@@ -174,78 +173,47 @@
 
 /**
   * @}
-  */
+  */ 
 
 /** @defgroup CS43L22_Exported_Functions
   * @{
   */
-/** @defgroup AUDIO_Driver_structure  Audio Driver structure
-  * @{
-  */
-/* Codec audio Standards */
-#define CODEC_STANDARD                0x04
-#define I2S_STANDARD                  I2S_STANDARD_PHILIPS
-
-typedef struct
-{
-	uint32_t  (*Init)(uint16_t, uint16_t, uint8_t, uint32_t);
-	void      (*DeInit)(void);
-	uint32_t  (*ReadID)(uint16_t);
-	uint32_t  (*Play)(uint16_t, uint16_t*, uint16_t);
-	uint32_t  (*Pause)(uint16_t);
-	uint32_t  (*Resume)(uint16_t);
-	uint32_t  (*Stop)(uint16_t, uint32_t);
-	uint32_t  (*SetFrequency)(uint16_t, uint32_t);
-	uint32_t  (*SetVolume)(uint16_t, uint8_t);
-	uint32_t  (*SetMute)(uint16_t, uint32_t);
-	uint32_t  (*SetOutputMode)(uint16_t, uint8_t);
-	uint32_t  (*Reset)(uint16_t);
-}AUDIO_DrvTypeDef;
+    
 /*------------------------------------------------------------------------------
                            Audio Codec functions 
 ------------------------------------------------------------------------------*/
 /* High Layer codec functions */
 uint32_t cs43l22_Init(uint16_t DeviceAddr, uint16_t OutputDevice, uint8_t Volume, uint32_t AudioFreq);
-
-void cs43l22_DeInit(void);
-
+void     cs43l22_DeInit(void);
 uint32_t cs43l22_ReadID(uint16_t DeviceAddr);
-
-uint32_t cs43l22_Play(uint16_t DeviceAddr, uint16_t *pBuffer, uint16_t Size);
-
+uint32_t cs43l22_Play(uint16_t DeviceAddr, uint16_t* pBuffer, uint16_t Size);
 uint32_t cs43l22_Pause(uint16_t DeviceAddr);
-
 uint32_t cs43l22_Resume(uint16_t DeviceAddr);
-
 uint32_t cs43l22_Stop(uint16_t DeviceAddr, uint32_t Cmd);
-
 uint32_t cs43l22_SetVolume(uint16_t DeviceAddr, uint8_t Volume);
-
 uint32_t cs43l22_SetFrequency(uint16_t DeviceAddr, uint32_t AudioFreq);
-
 uint32_t cs43l22_SetMute(uint16_t DeviceAddr, uint32_t Cmd);
-
 uint32_t cs43l22_SetOutputMode(uint16_t DeviceAddr, uint8_t Output);
-
 uint32_t cs43l22_Reset(uint16_t DeviceAddr);
 
 /* AUDIO IO functions */
-void AUDIO_IO_Init(void);
-
-void AUDIO_IO_DeInit(void);
-
-void AUDIO_IO_Write(uint8_t Addr, uint8_t Reg, uint8_t Value);
-
-uint8_t AUDIO_IO_Read(uint8_t Addr, uint8_t Reg);
+void      AUDIO_IO_Init(void);
+void      AUDIO_IO_DeInit(void);
+void      AUDIO_IO_Write(uint8_t Addr, uint8_t Reg, uint8_t Value);
+uint8_t   AUDIO_IO_Read(uint8_t Addr, uint8_t Reg);
 
 /* Audio driver structure */
-extern AUDIO_DrvTypeDef cs43l22_drv;
+extern AUDIO_DrvTypeDef   cs43l22_drv;
 
 #endif /* __CS43L22_H */
 
 /**
   * @}
-  */
+  */ 
+
+/**
+  * @}
+  */ 
 
 /**
   * @}
@@ -253,10 +221,6 @@ extern AUDIO_DrvTypeDef cs43l22_drv;
 
 /**
   * @}
-  */
-
-/**
-  * @}
-  */
+  */ 
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
