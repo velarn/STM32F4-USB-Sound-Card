@@ -191,8 +191,6 @@ __IO uint16_t AudioInVolume = DEFAULT_AUDIO_IN_VOLUME;
   * @{
   */ 
 static uint8_t I2S3_Init(uint32_t AudioFreq);
-static uint8_t I2S2_Init(uint32_t AudioFreq);
-static void PDMDecoder_Init(uint32_t AudioFreq, uint32_t ChnlNbrIn, uint32_t ChnlNbrOut);
 /**
   * @}
   */ 
