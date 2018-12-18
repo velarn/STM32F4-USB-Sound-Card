@@ -220,6 +220,9 @@ static int8_t AUDIO_AudioCmd_FS(uint8_t* pbuf, uint32_t size, uint8_t cmd)
 		case AUDIO_CMD_PLAY:
 			BSP_AUDIO_OUT_ChangeBuffer((uint16_t *)pbuf, size);
 			break;
+		case AUDIO_CMD_STOP:
+			BSP_AUDIO_OUT_Stop(CODEC_PDWN_SW);
+			break;
 	}
 	return (USBD_OK);
   /* USER CODE END 2 */
