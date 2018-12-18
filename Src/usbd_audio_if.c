@@ -183,6 +183,7 @@ static int8_t AUDIO_Init_FS(uint32_t AudioFreq, uint32_t Volume, uint32_t option
 {
   /* USER CODE BEGIN 0 */
 	//BSP_AUDIO_OUT_Init(OUTPUT_DEVICE_AUTO, Volume, AudioFreq);
+
 	BSP_LED_On(0);
 	return (USBD_OK);
   /* USER CODE END 0 */
