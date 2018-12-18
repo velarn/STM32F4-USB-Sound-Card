@@ -129,7 +129,7 @@ int main(void) {
 //	MX_I2S3_Init();
 	MX_USB_DEVICE_Init();
 	/* USER CODE BEGIN 2 */
-	BSP_AUDIO_OUT_Init(OUTPUT_DEVICE_HEADPHONE,50,48000);
+	//BSP_AUDIO_OUT_Init(OUTPUT_DEVICE_HEADPHONE,50,48000);
 	//int ret = BSP_AUDIO_OUT_Init(OUTPUT_DEVICE_AUTO, 70, 48000);
 	/* USER CODE END 2 */
 
@@ -186,13 +186,6 @@ void SystemClock_Config(void) {
 	PeriphClkInitStruct.PLLI2S.PLLI2SR = 3;
 	if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK) {
 		Error_Handler();
-	}
-
-	/* STM32F405x/407x/415x/417x Revision Z devices: prefetch is supported  */
-	if (HAL_GetREVID() == 0x1001)
-	{
-		/* Enable the Flash prefetch */
-		__HAL_FLASH_PREFETCH_BUFFER_ENABLE();
 	}
 
 	//HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
